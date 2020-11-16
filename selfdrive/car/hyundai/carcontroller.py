@@ -48,9 +48,9 @@ def process_hud_alert(enabled, fingerprint, visual_alert, left_lane,
   left_lane_warning = 0
   right_lane_warning = 0
   if left_lane_depart:
-    left_lane_warning = 1 if fingerprint in [CAR.HYUNDAI_GENESIS, CAR.GENESIS_G90, CAR.GENESIS_G80] else 2
+    left_lane_warning = 1 if fingerprint in [CAR.GENESIS, CAR.GENESIS_G90, CAR.GENESIS_G80] else 2
   if right_lane_depart:
-    right_lane_warning = 1 if fingerprint in [CAR.HYUNDAI_GENESIS, CAR.GENESIS_G90, CAR.GENESIS_G80] else 2
+    right_lane_warning = 1 if fingerprint in [CAR.GENESIS, CAR.GENESIS_G90, CAR.GENESIS_G80] else 2
 
   return sys_warning, sys_state, left_lane_warning, right_lane_warning   ###바꿈
 
@@ -93,7 +93,7 @@ class CarController():
     #lkas_active = enabled and self.lkas_button_on
 
     # fix for Genesis hard fault at low speed
-    if CS.out.vEgo < 60 * CV.KPH_TO_MS and self.car_fingerprint == CAR.HYUNDAI_GENESIS and not CS.mdps_bus:
+    if CS.out.vEgo < 60 * CV.KPH_TO_MS and self.car_fingerprint == CAR.GENESIS and not CS.mdps_bus:
       lkas_active = 0
 
     # Disable steering while turning blinker on and speed below 60 kph
